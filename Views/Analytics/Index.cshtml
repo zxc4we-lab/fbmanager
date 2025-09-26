@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Analytics";
+}
+<h2>Analytics</h2>
+<p>The following metrics summarise engagement across all pages and posts.</p>
+<table class="table table-bordered w-auto">
+    <tbody>
+        <tr>
+            <th>Total Reach</th>
+            <td>@ViewData["TotalReach"]</td>
+        </tr>
+        <tr>
+            <th>Total Reactions</th>
+            <td>@ViewData["TotalReactions"]</td>
+        </tr>
+        <tr>
+            <th>Total Comments</th>
+            <td>@ViewData["TotalComments"]</td>
+        </tr>
+        <tr>
+            <th>Total Shares</th>
+            <td>@ViewData["TotalShares"]</td>
+        </tr>
+    </tbody>
+</table>
+<!-- Placeholder for potential charts.  You could integrate Chart.js here
+     by loading the library via CDN and feeding it the aggregated metrics. -->

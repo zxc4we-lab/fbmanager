@@ -1,0 +1,28 @@
+/* Custom styles for the sidebar and page content */
+#wrapper {
+    overflow-x: hidden;
+    /* The sidebar will collapse on smaller screens via JavaScript */
+}
+
+#sidebar-wrapper {
+    width: 250px;
+    transition: all 0.3s;
+}
+
+#page-content-wrapper {
+    width: 100%;
+}
+
+/* Hide the sidebar when the wrapper has the toggled class */
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: -250px;
+}
+
+@media (max-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: -250px;
+    }
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: 0;
+    }
+}

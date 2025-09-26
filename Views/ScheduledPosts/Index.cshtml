@@ -1,0 +1,38 @@
+@model IEnumerable<FacebookManager.Models.ScheduledPost>
+@{
+    ViewData["Title"] = "Scheduled Posts";
+}
+<h2>Scheduled Posts</h2>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Schedule New Post</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Page</th>
+            <th>Scheduled For</th>
+            <th>Published</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Page?.Name</td>
+            <td>@item.ScheduledFor.ToLocalTime().ToString("yyyy-MM-dd HH:mm")</td>
+            <td>@(item.IsPublished ? "Yes" : "No")</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-secondary">Edit</a>
+                @if (!item.IsPublished)
+                {
+                    <a asp-action="Publish" asp-route-id="@item.Id" class="btn btn-sm btn-success">Publish Now</a>
+                }
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
